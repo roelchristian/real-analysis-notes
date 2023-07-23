@@ -1,0 +1,5 @@
+\contentsline {chapter}{\numberline {1}The Real Numbers}{5}{}%
+\contentsline {section}{\numberline {1.1}Review: Logic and proofs}{5}{}%
+\contentsline {section}{\numberline {1.2}Sets}{7}{}%
+\contentsline {section}{\numberline {1.3}The Natural Numbers}{7}{}%
+\contentsline {section}{\numberline {1.4}The Real Numbers}{7}{}%

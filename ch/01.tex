@@ -1,0 +1,84 @@
+\chapter{The Real Numbers}
+
+\section{Review: Logic and proofs}
+
+We can naively think of mathematics as a collection of \emph{atomic sentences}, each of which can either be true (T) of false (F). We will denote an arbitrary atomic sentence as
+\begin{equation*}
+    P.
+\end{equation*}
+Our goal is to construct more complex sentences from these atomic sentences. We can do this by using \emph{logical connectives} to combine atomic sentences. For our purposes, we will need the following logical connectives: the unary operator `\(\neg\)' and the binary operators `\(\wedge\)', `\(\vee\)', `\(\implies\)', and `\(\iff\)'. It would be useful to think of these connectors in terms of their analogue in the natural language (e.g., to think of \(\neg P\) as the negation of \(P\)) but in order to keep our logical system self-contained, we will define these connectors in terms of their \emph{truth tables}, as shown in Table~\ref{tab:truth-tables}. We call any sentence constructed from atomic sentences and these logical connectives a \emph{well-formed formula} (wff).
+
+\begin{table}
+    \begin{tabular}{lllllll}
+        \(P\) & \(Q\) & \(\neg P\) & \(P \wedge Q\) & \(P \vee Q\) & \(P \implies Q\) & \(P \iff Q\) \\
+        \hline
+        T & T & F & T & T & T & T \\
+        T & F & F & F & T & F & F \\
+        F & T & T & F & T & T & F \\
+        F & F & T & F & F & T & T
+    \end{tabular}
+    \caption{Truth tables for the logical connectives.}
+    \label{tab:truth-tables}
+\end{table}
+
+In addition to the logical connectives, we also introduce \(\perp\) (read as ``falsum''), which is always false. We can define \(\perp\) in terms of the logical connectives as \(\perp \iff P \wedge \neg P\). We can also define \(\top\) (read as ``verum''), which is always true, as \(\top \iff \neg \perp\).
+
+To avoid ambiguity, we will put parentheses around atomic statements joined by logical connectives. For example, we will write \((P \wedge Q) \vee R\). Nevertheless, to avoid making our notation too cluttered, we introduce the following order of precedence for the logical connectives:
+\begin{enumerate}[label=(\arabic*)]
+    \item \(\neg\) precedes \(\wedge\)
+    \item \(\wedge\) precedes \(\vee\)
+    \item \(\vee\) precedes both \(\implies\) and \(\iff\)
+    \item \(\implies\) and \(\iff\) are of equal precedence
+    \item 'precedes' is transitive
+\end{enumerate}
+
+From these truth tables, we can derive the following rules, whose proofs we leave as an exercise to the reader:
+
+\begin{proposition}
+    Let \(A, B, C\) be wffs. Then:
+    \begin{enumerate}[label=(\alph*)]
+        \item (De Morgan's Laws): \(\neg (A \wedge B) \iff (\neg A \vee \neg B)\) and \(\neg (A \vee B) \iff (\neg A \wedge \neg B)\).
+        \item Distributivity: \(A \wedge (B \vee C) \iff (A \wedge B) \vee (A \wedge C)\) and \(A \vee (B \wedge C) \iff (A \vee B) \wedge (A \vee C)\).
+        \item Contrapositive: \(A \implies B \iff (\neg B \implies \neg A)\).
+    \end{enumerate} 
+\end{proposition}
+
+With these on hand, we can now define the notion of a \emph{proof}. A proof is a sequence of wffs, each of which is either an axiom or follows from previous wffs in the sequence by a valid inference rule. An \emph{axiom} is a wff that we assume to be true without proof. An \emph{inference rule} is a rule that allows us to construct a new wff from previous wffs.
+
+The following strategies are commonly used in mathematical proofs:
+
+\begin{enumerate}
+    \item \emph{Proof of a conjunction}: To show that \(A \wedge B\) is true, it suffices to show that \(A\) and \(B\) are both true.
+    \item \emph{Proof of a disjunction}: To show that \(A \vee B\) is true, it suffices to show that either \(A\) or \(B\) is true.
+    \item \emph{Modus ponens}: If \(A\) and \(A \implies B\) are true, then \(B\) is true.
+\end{enumerate}
+
+
+
+\section{Sets}
+
+\section{The Natural Numbers}
+
+\begin{axiom}[Peano Axioms]
+    Let \(\Naturals\) be the set of natural numbers. Then:
+    \begin{enumerate}
+        \item \(0 \in N\)
+        \item There exists a mapping \(N: \Naturals \to \Naturals\) such that \(N(n) \in \Naturals\) for all \(n \in \Naturals\).
+        \item If \(m\) and \(n\) are natural numbers such that \(N(m) = N(n)\), then \(m = n\) (i.e., the mapping \(N\) is injective).
+        \item There is no natural number \(n\) such that \(N(n) = 0\).
+        \item Let \(K \subseteq \Naturals\) be a subset of \(\Naturals\) such that \(0 \in K\) and \(N(n) \in K\) for all \(n \in K\). Then \(K = \Naturals\).
+    \end{enumerate}
+\end{axiom}
+
+\section{The Real Numbers}
+
+\begin{axiom}[The Field Axioms of \(\Reals\)]
+    Let \(\Reals\) be the set of real numbers and let \(\cdot: \Reals \times \Reals \to \Reals\) and \(+: \Reals \times \Reals \to \Reals\) be binary operations on \(\Reals\). Then:
+    \begin{enumerate}
+        \item \((\Reals, +)\) is an abelian group with identity \(0\).
+        \item \((\Reals \setminus \{0\}, \cdot)\) is an abelian group with identity \(1\).
+        \item Multiplication distributes over addition, i.e., for all \(a, b, c \in \Reals\), \(a \cdot (b + c) = (a \cdot b) + (a \cdot c)\) and \((a + b) \cdot c = (a \cdot c) + (b \cdot c)\).
+    \end{enumerate}
+\end{axiom}
+
+For the sake of brevity, we will write \(a \cdot b\) as \(ab\).

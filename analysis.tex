@@ -1,0 +1,47 @@
+\documentclass[12pt]{book}
+
+\title{Real Analysis}
+\author{Roel Christian Yambao}
+\date{2023}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+
+% Theorem Styles
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{axiom}{Axiom}
+
+% Custom Commands
+\newcommand{\Reals}{\mathbf{R}}
+\newcommand{\Naturals}{\mathbf{N}}
+\newcommand{\Integers}{\mathbf{Z}}
+\newcommand{\Rationals}{\mathbf{Q}}
+\newcommand{\Complex}{\mathbf{C}}
+
+
+\usepackage{enumitem}
+
+
+\AtBeginDocument{
+    \let\epsilon\varepsilon
+    \let\phi\varphi
+    \let\emptyset\varnothing
+    \let\implies\Rightarrow
+    \let\iff\Leftrightarrow
+}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\include{ch/01} % The Real Numbers
+
+\end{document}
